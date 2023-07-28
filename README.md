@@ -27,3 +27,4 @@ int main()
 
 # Useful websites:
 - [C++ shell: Online C++ compiler](https://cpp.sh/)
+- [Defining functions in C++](https://www.tutorialspoint.com/cplusplus/cpp_functions.htm)
