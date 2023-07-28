@@ -146,6 +146,75 @@ void DisplayType(string display, auto value){
 }
 ```
 
+# Pointers in functions can change the original variable
+```cpp
+// Pointers
+#include <iostream>
+#include <string>
+#include <typeinfo>
+using namespace std;
+
+int ChangeValue(int value);
+int ReallyChangeValue(int* pvalue);
+int DontChangeValue(int* pvalue);
+
+void Display(string display, auto value);
+void DisplayType(string display, auto value);
+
+int main()
+{
+  // Defining the variables we are going to use:
+  int value;
+  int* pvalue;
+  
+  // Let's mess around with functions. 
+  value = 1;
+  
+  Display("value before", value);
+  Display("changed value", ChangeValue(value));
+  Display("value after", value);
+  
+  // really change value
+  pvalue = &value;
+  
+  Display("value before", value);
+  Display("really changed value", ReallyChangeValue(pvalue));
+  Display("value after", value);
+  // conclusion: if you pass a pointer to a function, it will change it's original value. 
+  
+  
+  /*
+  OUTPUT:
+  value before: 1
+  changed value: 2
+  value after: 1
+  value before: 1
+  really changed value: 2
+  value after: 2
+  */
+  
+}
+
+int ChangeValue(int value){
+  value += 1;
+  return value;
+}
+
+int ReallyChangeValue(int* pvalue){
+  *pvalue += 1;
+  return *pvalue;
+}
+
+void Display(string display, auto value){
+  cout << display << ": " << value << '\n';
+}
+
+void DisplayType(string display, auto value){
+  auto valueType = typeid(value).name();
+  cout << display << ": " << valueType << '\n';
+}
+```
+
 
 
 # Useful websites:
