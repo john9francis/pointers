@@ -156,7 +156,6 @@ using namespace std;
 
 int ChangeValue(int value);
 int ReallyChangeValue(int* pvalue);
-int DontChangeValue(int* pvalue);
 
 void Display(string display, auto value);
 void DisplayType(string display, auto value);
