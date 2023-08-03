@@ -29,6 +29,98 @@ int main()
 }
 ```
 
+# Pointers have unique types
+```cpp
+// Pointer types
+#include <iostream>
+#include <string>
+using namespace std;
+
+// function to display the type:
+
+void DisplayType(string display, auto value){
+  auto valueType = typeid(value).name();
+  cout << display << ": " << valueType << '\n';
+}
+
+int main()
+{
+  // define an int value
+  int value = 10;
+  
+  // define a pointer to the int
+  int* pointer = &value;
+  
+  // see the types:
+  DisplayType("value type", value);
+  DisplayType("pointer type", pointer);
+  
+  // define a bool value
+  bool myBool = true;
+  
+  // define a pointer to the bool
+  bool* pMyBool = &myBool;
+  
+  // see the types:
+  DisplayType("myBool type", myBool);
+  DisplayType("pMyBool type", pMyBool);
+  
+  /*
+  OUTPUT:
+  value type: i
+  pointer type: Pi
+  myBool type: b
+  pMyBool type: Pb
+  */
+}
+```
+
+# Pointer-ception
+```cpp
+// Pointer types
+#include <iostream>
+#include <string>
+using namespace std;
+
+// function to display the type:
+
+void DisplayType(string display, auto value){
+  auto valueType = typeid(value).name();
+  cout << display << ": " << valueType << '\n';
+}
+
+int main()
+{
+  // define an int value
+  int value = 10;
+  
+  // define a pointer to the int
+  int* pvalue = &value;
+  
+  // define a pointer to the pointer to the int
+  int** ppvalue = &pvalue;
+  
+  // define a pointer to the pointer to the pointer to the int
+  int*** pppvalue = &ppvalue;
+  
+  // display the types
+  DisplayType("value type", value);
+  DisplayType("pvalue type", pvalue);
+  DisplayType("ppvalue type", ppvalue);
+  DisplayType("pppvaue type", pppvalue);
+  
+
+  /*
+  OUTPUT
+  value type: i
+  pvalue type: Pi
+  ppvalue type: PPi
+  pppvaue type: PPPi
+  */
+}
+```
+
+
 # Messing around with pointers pt. 1
 ```cpp
 // Pointers
