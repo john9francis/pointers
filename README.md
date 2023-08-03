@@ -5,7 +5,6 @@ Everything you need to know about pointers in C++
 ```cpp
 // Pointers
 #include <iostream>
-#include <string>
 using namespace std;
 
 int main()
