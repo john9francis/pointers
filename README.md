@@ -10,15 +10,22 @@ using namespace std;
 
 int main()
 {
+  // define a value
   int value = 10;
-  int* pv = &value;
-  cout << "pv: " << pv << "\n";
-  cout << "*pv: " << *pv << "\n";
+  
+  // define a pointer
+  int* pointer = &value;
+  
+  // display the pointer and the value of the pointer
+  cout << "value: " << value << "\n";
+  cout << "pointer: " << pointer << "\n";
+  cout << "*pointer: " << *pointer << "\n";
   
   /*
   OUTPUT:
-  pv: 0x50528c
-  *pv: 10
+  value: 10
+  pointer: 0x50528c
+  *pointer: 10
   */
 }
 ```
