@@ -1,3 +1,6 @@
+# More pointers
+This file is basically just me messing around and trying to understand pointers.
+
 # Messing around with pointers pt. 1
 ```cpp
 // Pointers
