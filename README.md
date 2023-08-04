@@ -192,6 +192,70 @@ int main()
 ```
 
 # Are pointers faster?
+
+Two ways of changing a value. One without pointers and one with pointers:
+```cpp
+// Changing a value with pointers
+#include <iostream>
+#include <string>
+#include <typeinfo>
+#include <chrono>
+using namespace std;
+using namespace std::chrono;
+
+int ChangeValue(int value){
+  value += 1;
+  return value;
+}
+
+void ReallyChangeValue(int* pvalue){
+  *pvalue += 1;
+  //return *pvalue;
+  // note: the return statement must copy the pointer because it slows the function down a lot.
+}
+
+void Display(string display, auto value){
+  cout << display << ": " << value << '\n';
+}
+
+int main()
+{
+  // so there are two ways to change a value:
+  // first way:
+  cout << "First way \n";
+  
+  int changeMe = 1;
+  Display("before change", changeMe);
+  changeMe = ChangeValue(changeMe);
+  Display("after change", changeMe);
+  
+  cout << '\n';
+  
+  // second way:
+  cout << "Second way \n";
+  
+  changeMe = 1;
+  Display("before change", changeMe);
+  ReallyChangeValue(&changeMe);
+  Display("after change", changeMe);
+  
+  /*
+  OUTPUT:
+  First way 
+  before change: 1
+  after change: 2
+
+  Second way 
+  before change: 1
+  after change: 2
+  */
+  
+}
+
+
+```
+
+Now let's check to see if pointers are really faster:
 ```cpp
 // Pointers
 #include <iostream>
