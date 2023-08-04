@@ -130,39 +130,57 @@ int main()
 #include <typeinfo>
 using namespace std;
 
-int ChangeValue(int value);
-int ReallyChangeValue(int* pvalue);
+int ChangeValue(int value){
+  /*This function takes in an int and adds one to it. */
+  value += 1;
+  return value;
+}
 
-void Display(string display, auto value);
-void DisplayType(string display, auto value);
+int ReallyChangeValue(int* pvalue){
+  /*This function takes in an int pointer and adds one to it. */
+  *pvalue += 1;
+  return *pvalue;
+}
+
+void Display(string display, auto value){
+  /*This function displays the name of a variable and then it's value.*/
+  cout << display << ": " << value << '\n';
+}
+
 
 int main()
 {
   // Defining the variables we are going to use:
-  int value;
-  int* pvalue;
+  int value = 1;
+  int* pvalue = &value;
   
   // Let's mess around with functions. 
-  value = 1;
   
   Display("value before", value);
   Display("changed value", ChangeValue(value));
   Display("value after", value);
   
+  // newline
+  cout << '\n';
+  
   // really change value
-  pvalue = &value;
   
   Display("value before", value);
   Display("really changed value", ReallyChangeValue(pvalue));
   Display("value after", value);
-  // conclusion: if you pass a pointer to a function, it will change it's original value. 
+  
+  // conclusion: 
+  // if you pass a variable to a function, it creates a copy of the variable.
+  // If you pass a pointer to a function, it modifies the original variable.
   
   
   /*
   OUTPUT:
+  
   value before: 1
   changed value: 2
   value after: 1
+  
   value before: 1
   really changed value: 2
   value after: 2
@@ -170,24 +188,7 @@ int main()
   
 }
 
-int ChangeValue(int value){
-  value += 1;
-  return value;
-}
 
-int ReallyChangeValue(int* pvalue){
-  *pvalue += 1;
-  return *pvalue;
-}
-
-void Display(string display, auto value){
-  cout << display << ": " << value << '\n';
-}
-
-void DisplayType(string display, auto value){
-  auto valueType = typeid(value).name();
-  cout << display << ": " << valueType << '\n';
-}
 ```
 
 # Are pointers faster?
