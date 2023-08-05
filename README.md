@@ -6,7 +6,7 @@ Everything you need to know about pointers in C++.
 - [Pointers have unique types](#pointers-have-unique-types)
 - [Pointer-ception](#pointer-ception)
 - [Pointers in functions can change the original variable](#pointers-in-functions-can-change-the-original-variable)
-- [Are pointers faster?](#are-pointers-faster?)
+- [Are pointers faster?](#are-pointers-faster)
 - [Pointers in Geant4](#pointers-in-geant4)
 - [Useful websites](#useful-websites)
 
