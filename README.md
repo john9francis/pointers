@@ -1,5 +1,5 @@
-# pointers
-Everything you need to know about pointers in C++.
+# Pointers
+A beginners guide to pointers in C++
 
 ## Contents:
 - [Defining a pointer](#defining-a-pointer)
