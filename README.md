@@ -356,6 +356,51 @@ int main() {
 
 ```
 
+# What about the new and delete keywords?
+New and delete only work with pointers. For example, the following code gives an ERROR:
+```cpp
+// Dynamic memory
+#include <iostream>
+#include <string>
+#include <typeinfo>
+#include <chrono>
+
+using namespace std;
+using namespace std::chrono;
+
+int ChangeValue(int value) {
+  value += 1;
+  return value;
+}
+
+void ReallyChangeValue(int* pvalue) {
+  *pvalue += 1;
+}
+
+void Display(string display, auto value) {
+  cout << display << ": " << value << '\n';
+}
+
+int main() {
+  int value = new int;
+  value = 1;
+  
+  delete value;
+
+  /*
+  OUTPUT:
+  main.cpp:24:7: error: cannot initialize a variable of type 'int' with an rvalue of type 'int *'
+  int value = new int;
+      ^       ~~~~~~~
+  main.cpp:27:3: error: cannot delete expression of type 'int'
+  delete value;
+  ^      ~~~~~
+  2 errors generated.
+  */
+}
+
+```
+
 # pointers in Geant4
 It's cool to understand pointers and all, but what's the purpose of using them? To find out, let's disect the pointer use in a more complicated program, Geant4. 
 
