@@ -140,7 +140,7 @@ The interesting thing to me, is the types that are generated. For example, a poi
 As far as I can tell, there is no limit to the depth of "pointer-ception."
 
 ```cpp
-// Pointer types
+// Pointer-ception
 #include <iostream>
 #include <string>
 using namespace std;
@@ -184,10 +184,18 @@ int main()
 ```
 
 
-
 # Pointers in functions can change the original variable
+
+Let's get into some real applications of pointers. One interesting thing about pointers is if you change the value of a pointer, you directly change the original variable's value.
+
+![Marionette doll being controlled by a hand](marionette.png)
+
+This kind of feels like our original value is a marionette doll, and our pointer is like the fingers that control it. We can bring our pointer wherever we want, and it's always attached to that original variable. If we change the pointers value, we change the original variables value. 
+
+Here's a simple example illustrating how changing a pointers value can change the value of a variable. In this example, we have two functions. `ChangeValue()` and `ReallyChangeValue()`. In `ChangeValue()`, we take in an integer, add one, and return the result. In the `ReallyChangeValue()` function, we do the exact same thing but with a pointer. Let's see what happens to the original variable's value when we run both functions.
+
 ```cpp
-// Pointers
+// Pointers changing a value
 #include <iostream>
 #include <string>
 #include <typeinfo>
@@ -251,14 +259,17 @@ int main()
   
 }
 
-
 ```
+
+As you can see by the output, the first function, `ChangeValue()`, creates a copy of the variable, and changes that copy's value, without touching the original variable. The `ReallyChangeValue()` function on the other hand, modifies the original variable.
+
+Can you think of how this could be powerful and efficient? Let's look and see if it's more efficient to use pointers than to not.
 
 # Are pointers faster?
 
-There are two ways of changing a value. One without pointers and one with pointers:
+There are two ways of changing a value. One with pointers and one without pointers:
 ```cpp
-// Changing a value with pointers
+// Changing a value in two ways
 #include <iostream>
 #include <string>
 #include <typeinfo>
@@ -273,8 +284,6 @@ int ChangeValue(int value){
 
 void ReallyChangeValue(int* pvalue){
   *pvalue += 1;
-  //return *pvalue;
-  // note: the return statement must copy the pointer because it slows the function down a lot.
 }
 
 void Display(string display, auto value){
@@ -422,5 +431,3 @@ int main() {
 ```
 
 After looping each method a large amount of times, we found that method 2 was consistenly faster. This speed difference could be very useful when working with very large C++ programs. Any extra efficiency is worth the trouble. 
-
-
