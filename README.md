@@ -257,115 +257,92 @@ int main()
 
 Now let's check to see if pointers are really faster:
 ```cpp
-// Pointers
+// Testing pointer speed
 #include <iostream>
 #include <string>
 #include <typeinfo>
 #include <chrono>
+
 using namespace std;
 using namespace std::chrono;
 
-int ChangeValue(int value);
-void ReallyChangeValue(int* pvalue);
-
-void Display(string display, auto value);
-void DisplayType(string display, auto value);
-
-int main()
-{
-    /*
-  // so there are two ways to change a value:
-  // first way:
-  int changeMe = 1;
-  Display("before change", changeMe);
-  changeMe = ChangeValue(changeMe);
-  Display("after change", changeMe);
-  
-  // second way:
-  changeMe = 1;
-  Display("before change", changeMe);
-  ReallyChangeValue(&changeMe);
-  Display("after change", changeMe);
-  */
-  int changeMe;
-  
-  // Let's try something that takes a little longer
-  int times = 100000000;
-  
-  // first method:
-  changeMe = 1;
-  
-  cout << "First method:";
-  
-  // keep track of time:
-  auto start1 = high_resolution_clock::now();
-  
-  // this should take awhile
-  for (int i=0; i<times; i++){
-    changeMe = ChangeValue(changeMe);
-  }
-  
-  auto stop1 = high_resolution_clock::now();
-  
-  auto duration1 = duration_cast<microseconds>(stop1 - start1).count();
-  Display("time spent", duration1);
-  
-  // second method:
-  changeMe = 1;
-  
-  cout << "Second method:";
-  
-  // keep track of time:
-  auto start2 = high_resolution_clock::now();
-  
-  int* pchangeMe = &changeMe;
-  
-  for (int i=0; i<times; i++){
-    ReallyChangeValue(pchangeMe);
-  }
-  
-  auto stop2 = high_resolution_clock::now();
-  
-  auto duration2 = duration_cast<microseconds>(stop2 - start2).count();
-  Display("time spent", duration2);
-  
-  if (duration1 < duration2){
-    cout << "method 1 was faster.";
-  }
-  if (duration1 > duration2){
-    cout << "method 2 was faster.";
-  }
-  
-  
-  /*
-  OUTPUT:
-  First method:time spent: 841020
-  Second method:time spent: 756059
-  method 2 was faster. 
-  */
-  // (Method 2 was consistently faster)
-  
-}
-
-int ChangeValue(int value){
+int ChangeValue(int value) {
   value += 1;
   return value;
 }
 
-void ReallyChangeValue(int* pvalue){
+void ReallyChangeValue(int* pvalue) {
   *pvalue += 1;
-  //return *pvalue;
-  // note: the return statement must copy the pointer because it slows the function down a lot.
 }
 
-void Display(string display, auto value){
+void Display(string display, auto value) {
   cout << display << ": " << value << '\n';
 }
 
-void DisplayType(string display, auto value){
-  auto valueType = typeid(value).name();
-  cout << display << ": " << valueType << '\n';
+int main() {
+  int changeMe;
+
+  // Let's loop each method a bunch of times
+  int times = 100000000;
+
+  // first method: =======================================================
+  changeMe = 1;
+
+  cout << "First method:";
+
+  // keep track of time:
+  auto start1 = high_resolution_clock::now();
+
+  // this should take a while
+  for (int i = 0; i < times; i++) {
+    changeMe = ChangeValue(changeMe);
+  }
+
+  // find the time it took to do loop 1
+  auto stop1 = high_resolution_clock::now();
+
+  auto duration1 = duration_cast<microseconds>(stop1 - start1).count();
+  Display("time spent", duration1);
+
+  // second method: ======================================================
+  changeMe = 1;
+
+  cout << "Second method:";
+
+  // keep track of time:
+  auto start2 = high_resolution_clock::now();
+
+  // get a pointer to use in the "ReallyChangeValue" function
+  int* pchangeMe = &changeMe;
+
+  // the loop
+  for (int i = 0; i < times; i++) {
+    ReallyChangeValue(pchangeMe);
+  }
+
+  // see how much time loop 2 took
+  auto stop2 = high_resolution_clock::now();
+
+  auto duration2 = duration_cast<microseconds>(stop2 - start2).count();
+  Display("time spent", duration2);
+
+  // display which method went faster
+  if (duration1 < duration2) {
+    cout << "method 1 was faster.";
+  }
+  if (duration1 > duration2) {
+    cout << "method 2 was faster.";
+  }
+
+  /*
+  OUTPUT:
+  First method:time spent: 840560
+  Second method:time spent: 740880
+  method 2 was faster. 
+  */
+  // (Method 2 was consistently faster)
 }
+
 ```
 
 # pointers in Geant4
