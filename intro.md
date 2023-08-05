@@ -10,7 +10,7 @@
 - [Are pointers faster?](#are-pointers-faster)
 
 # What is a pointer?
-A pointer is a variable that "points" to another variable. In more technical terms, a pointer is a variable that holds the address in memory of another variable. 
+A pointer is a variable that "points" to another variable. In more technical terms, a pointer is a variable that holds the address in memory of another variable.
 
 # Defining a pointer
 
@@ -205,7 +205,7 @@ int main()
 
 # Are pointers faster?
 
-Two ways of changing a value. One without pointers and one with pointers:
+There are two ways of changing a value. One without pointers and one with pointers:
 ```cpp
 // Changing a value with pointers
 #include <iostream>
@@ -267,7 +267,20 @@ int main()
 
 ```
 
-Now let's check to see if pointers are really faster:
+In the first way, I use the function, "ChangeValue." This function takes the first value, makes a copy of it, adds one to the copy, and returns the copy. Then I assign that returned value to the original value, "changeMe." In the second way, I used the function, "ReallyChangeValue." This takes in a pointer to the "changeMe" variable, and changes it without making a copy.
+
+Making a copy of the variable can be computationally expensive. It's easier on the computer to just change the variable directly. 
+
+## Truck example
+
+![Pickup truck](truck.jpeg)
+
+One way to think of it is by imagining you have a friend with a truck. You need to use the truck for a day. Would you rather call and ask them if you can use their truck, or go out and buy your own truck? 
+
+The first way, making a copy of the variable, is like buying our own truck. The second way, using a pointer, is like borrowing the truck. We don't have to make a copy, we just use the value. 
+
+In this very simple example, it's hard to tell a difference in computational speed. Either method is so fast that the difference is negligable. Theoretically though, the pointer method is faster. Let's test that out by looping each method several times, and recording which one is faster.
+
 ```cpp
 // Testing pointer speed
 #include <iostream>
@@ -356,5 +369,7 @@ int main() {
 }
 
 ```
+
+After looping each method a large amount of times, we found that method 2 was consistenly faster. This speed difference could be very useful when working with very large C++ programs. Any extra efficiency is worth the trouble. 
 
 
