@@ -1,6 +1,8 @@
 # Pointers
 A beginners guide to pointers in C++
 
+Author: [John Francis](https://github.com/john9francis)
+
 ## Contents:
 - [Defining a pointer](#defining-a-pointer)
 - [Pointers have unique types](#pointers-have-unique-types)
