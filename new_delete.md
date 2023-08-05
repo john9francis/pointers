@@ -58,3 +58,8 @@ int main() {
 }
 
 ```
+
+# Useful websites
+- [Geeks for Geeks new and delete operators](https://www.geeksforgeeks.org/new-and-delete-operators-in-cpp-for-dynamic-memory/)
+- [Shiksha new and delete operators in C++](https://www.shiksha.com/online-courses/articles/new-and-delete-operators-in-cpp/)
+
