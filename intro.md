@@ -10,6 +10,7 @@
 - [Are pointers faster?](#are-pointers-faster)
 
 # Defining a pointer
+
 ```cpp
 // Pointers
 #include <iostream>
