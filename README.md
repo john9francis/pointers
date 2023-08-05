@@ -9,6 +9,7 @@ Author: [John Francis](https://github.com/john9francis)
 - [Pointer-ception](#pointer-ception)
 - [Pointers in functions can change the original variable](#pointers-in-functions-can-change-the-original-variable)
 - [Are pointers faster?](#are-pointers-faster)
+- [What about the new and delete keywords?](#what-about-the-new-and-delete-keywords)
 - [Pointers in Geant4](#pointers-in-geant4)
 - [Useful websites](#useful-websites)
 
