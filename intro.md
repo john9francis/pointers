@@ -15,7 +15,7 @@ A pointer is a variable that "points" to another variable. In more technical ter
 # Defining a pointer
 
 To define a pointer, there are some new symbols that we need to be familiar with:
-- * The asterisk is used to define a pointer, or get the pointers value
+- \* The asterisk is used to define a pointer, or get the pointers value
 - & The ampersand is used to get the address in memory of a variable. 
 
 ```cpp
