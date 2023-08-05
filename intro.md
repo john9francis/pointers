@@ -275,9 +275,9 @@ Making a copy of the variable can be computationally expensive. It's easier on t
 
 ![Pickup truck](truck.jpg)
 
-One way to think of it is by imagining you have a friend with a truck. You need to use the truck for a day. Would you rather call and ask them if you can use their truck, or go out and buy your own truck? 
+One way to think of these two functions is by imagining you have a friend with a truck. You need to use the truck for a day. Would you rather call and ask them if you can use their truck, or go out and buy your own truck? 
 
-The first way, making a copy of the variable, is like buying our own truck. The second way, using a pointer, is like borrowing the truck. We don't have to make a copy, we just use the value. 
+The first way, making a copy of the variable, is like buying our own truck. We have to create a copy of the variable. The second way, using a pointer, is like borrowing the truck. We don't have to make a copy, we just use the value. 
 
 In this very simple example, it's hard to tell a difference in computational speed. Either method is so fast that the difference is negligable. Theoretically though, the pointer method is faster. Let's test that out by looping each method several times, and recording which one is faster.
 
