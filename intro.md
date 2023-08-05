@@ -273,7 +273,7 @@ Making a copy of the variable can be computationally expensive. It's easier on t
 
 ## Truck example
 
-![Pickup truck](truck.jpeg)
+![Pickup truck](truck.jpg)
 
 One way to think of it is by imagining you have a friend with a truck. You need to use the truck for a day. Would you rather call and ask them if you can use their truck, or go out and buy your own truck? 
 
