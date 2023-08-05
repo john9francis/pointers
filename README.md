@@ -1,5 +1,14 @@
 # pointers
-Everything you need to know about pointers in C++
+Everything you need to know about pointers in C++.
+
+## Contents:
+- [Defining a pointer](#defining-a-pointer)
+- [Pointers have unique types](#pointers-have-unique-types)
+- [Pointer-ception](#pointer-ception)
+- [Pointers in functions can change the original variable](#pointers-in-functions-can-change-the-original-variable)
+- [Are pointers faster?](#are-pointers-faster?)
+- [Pointers in Geant4](#pointers-in-geant4)
+- [Useful websites](#useful-websites)
 
 # Defining a pointer
 ```cpp
