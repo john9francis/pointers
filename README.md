@@ -362,25 +362,9 @@ New and delete only work with pointers. For example, the following code gives an
 ```cpp
 // Dynamic memory
 #include <iostream>
-#include <string>
-#include <typeinfo>
-#include <chrono>
 
 using namespace std;
-using namespace std::chrono;
 
-int ChangeValue(int value) {
-  value += 1;
-  return value;
-}
-
-void ReallyChangeValue(int* pvalue) {
-  *pvalue += 1;
-}
-
-void Display(string display, auto value) {
-  cout << display << ": " << value << '\n';
-}
 
 int main() {
   int value = new int;
@@ -397,6 +381,34 @@ int main() {
   delete value;
   ^      ~~~~~
   2 errors generated.
+  */
+}
+```
+
+This code is how to correctly use the new and delete keywords
+```cpp
+// Dynamic memory
+#include <iostream>
+
+using namespace std;
+
+void Display(string display, auto value) {
+  cout << display << ": " << value << '\n';
+}
+
+int main() {
+  int* value = new int;
+  *value = 1;
+  
+  Display("value", value);
+  Display("*value", *value);
+  
+  delete value;
+
+  /*
+  OUTPUT:
+  value: 0x505348
+  *value: 1
   */
 }
 
