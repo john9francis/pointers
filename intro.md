@@ -9,6 +9,9 @@
 - [Pointers in functions can change the original variable](#pointers-in-functions-can-change-the-original-variable)
 - [Are pointers faster?](#are-pointers-faster)
 
+# What is a pointer?
+A pointer is a variable that "points" to another variable. In more technical terms, a pointer is a variable that holds the address in memory of another variable. 
+
 # Defining a pointer
 
 ```cpp
