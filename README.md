@@ -426,3 +426,6 @@ We are going to dissect the use of pointers in a Geant4 application and see what
 # Useful websites:
 - [C++ shell: Online C++ compiler](https://cpp.sh/)
 - [Defining functions in C++](https://www.tutorialspoint.com/cplusplus/cpp_functions.htm)
+
+- About new and delete
+- [Shiksha new and delete operators in C++](https://www.shiksha.com/online-courses/articles/new-and-delete-operators-in-cpp/)
