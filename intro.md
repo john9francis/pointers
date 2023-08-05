@@ -10,6 +10,7 @@
 - [Are pointers faster?](#are-pointers-faster)
 
 # What is a pointer?
+![pointing finger](point.avif)
 A pointer is a variable that "points" to another variable. In more technical terms, a pointer is a variable that holds the address in memory of another variable.
 
 # Defining a pointer
@@ -17,6 +18,38 @@ A pointer is a variable that "points" to another variable. In more technical ter
 To define a pointer, there are some new symbols that we need to be familiar with:
 - `*` The asterisk is used to define a pointer, or get the pointers value
 - `&` The ampersand is used to get the address in memory of a variable. 
+
+For example, here's how you would use an asterisk to define a pointer to an int in C++:
+
+```cpp
+int* myPointer;
+```
+
+Here's how you would get the address of another variable using the ampersand:
+
+```cpp
+int myValue = 1;
+int* myPointer;
+
+// defining the pointer to point to the value
+myPointer = &myValue;
+```
+
+Now if we printed out the value of myPointer, we would get some address in memory, like 0x50528c or something like that. 
+
+```cpp
+cout << myPointer;
+// Output: 0x50528c
+```
+
+What if we want to get the value of the pointer? Well, then we use the asterisk again, this time to the left of the value, like so:
+
+```cpp
+cout << *myPointer;
+// output: 1 
+```
+
+Here's a complete example program to define a pointer.
 
 ```cpp
 // Pointers
@@ -46,10 +79,15 @@ int main()
 ```
 
 # Pointers have unique types
+
+There are types in C++ such as int, char, float, double, etc. Pointers have their own types as well. For example, if the "int" type was called, "I," the pointer to the int is a type called, "PI." 
+
+To see this in action, here's an example C++ program.
+
 ```cpp
 // Pointer types
 #include <iostream>
-#include <string>
+
 using namespace std;
 
 // function to display the type:
@@ -92,6 +130,15 @@ int main()
 ```
 
 # Pointer-ception
+
+![Multiple spider mans pointing to eachother meme](spider-man-meme.jpg)
+
+It is possible to have a pointer to a pointer. You can also have a pointer to a pointer to a pointer. This is generally not reccomended, as it makes code very confusing, but it is possible. 
+
+The interesting thing to me, is the types that are generated. For example, a pointer to a pointer to an int is called a "PPI." A pointer to that would be called a "PPPI." 
+
+As far as I can tell, there is no limit to the depth of "pointer-ception."
+
 ```cpp
 // Pointer types
 #include <iostream>
