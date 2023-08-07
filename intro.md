@@ -340,8 +340,7 @@ In this very simple example, it's hard to tell a difference in computational spe
 ```cpp
 // Testing pointer speed
 #include <iostream>
-#include <string>
-#include <typeinfo>
+
 #include <chrono>
 
 using namespace std;
