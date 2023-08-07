@@ -239,11 +239,6 @@ int main()
   Display("really changed value", ReallyChangeValue(pvalue));
   Display("value after", value);
   
-  // conclusion: 
-  // if you pass a variable to a function, it creates a copy of the variable.
-  // If you pass a pointer to a function, it modifies the original variable.
-  
-  
   /*
   OUTPUT:
   
@@ -255,7 +250,10 @@ int main()
   really changed value: 2
   value after: 2
   */
-  
+
+  // conclusion: 
+  // if you pass a variable to a function, it creates a copy of the variable.
+  // If you pass a pointer to a function, it modifies the original variable.
 }
 
 ```
