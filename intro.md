@@ -8,6 +8,7 @@
 - [Pointer-ception](#pointer-ception)
 - [Pointers in functions can change the original variable](#pointers-in-functions-can-change-the-original-variable)
 - [Are pointers faster?](#are-pointers-faster)
+- [Truck example](#truck-example)
 - [Conclusion](#conclusion)
 
 # What is a pointer?
@@ -351,14 +352,6 @@ In the first way, I use the function, "ChangeValue." This function takes the fir
 
 Making a copy of the variable can be computationally expensive. It's easier on the computer to just change the variable directly. 
 
-## Truck example
-
-![Pickup truck](truck.jpg)
-
-One way to think of these two functions is by imagining you have a friend with a truck. You need to use the truck for a day. Would you rather call and ask them if you can use their truck, or go out and buy your own truck? 
-
-The first way, making a copy of the variable, is like buying our own truck. We create a whole copy of the variable, only to use it very briefly. The second way, using a pointer, is like borrowing the truck. We don't have to make a copy, we just borrow the original variable and then give it back when we're done. 
-
 In this very simple example, it's hard to tell a difference in computational speed. Either method is so fast that the difference is negligable. Theoretically though, the pointer method is faster. Let's test that out by looping each method several times, and recording which one is faster.
 
 ```cpp
@@ -451,5 +444,15 @@ int main() {
 
 After looping each method a large amount of times, we found that method 2 was consistenly faster. This speed difference could be very useful when working with very large C++ programs. Any extra efficiency is worth the trouble. 
 
+# Truck example
+
+![Pickup truck](truck.jpg)
+
+One way to think about pointers is by imagining you have a friend with a truck. You need to use the truck for a day. Would you rather call and ask them if you can use their truck, or go out and buy your own truck? 
+
+Copying the variable each time you need to modify it is like buying your own truck. It can be a lot more expensive on your performance. Using a pointer on the other hand is like calling and asking you friend to borrow their truck. This way, your program only has one truck that several functions can share. 
+
+Pointers aren't always the right choice though. Going back to the truck example, imagine you borrowed your friend's truck, and you get a big scratch in the paint, your friend would be really angry. Or say you borrowed your friends truck and then modified it to your own style by getting it lifted, getting some flame decals on the side, or getting the windows tinted. Your friend probably doesn't want his truck modified like that. Similarly with pointers, sometimes you shouldn't modify the original value. Depending on the circumstances, making a copy of the variable can be safer. So with pointers, it's important to understand what you're doing.
+
 # Conclusion
-With this brief introduction to pointers, we can already start to see how they can be beneficial. Pointers
+With this brief introduction to pointers, we can already start to see how they can be beneficial. Pointers are variables that hold the address of another variable. By modifying a pointers value, we modify the original variable's value. Pointers are always connected to the original variable, so we can do things like modify the original variable inside of a different function or class. Pointers are powerful, but it's important to understand what you're doing so you don't accidentally modify a variable that you wanted to keep the way it was. 
