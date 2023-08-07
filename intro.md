@@ -8,9 +8,10 @@
 - [Pointer-ception](#pointer-ception)
 - [Pointers in functions can change the original variable](#pointers-in-functions-can-change-the-original-variable)
 - [Are pointers faster?](#are-pointers-faster)
+- [Truck example](#truck-example)
+- [Conclusion](#conclusion)
 
 # What is a pointer?
-![pointing finger](point.avif)
 A pointer is a variable that "points" to another variable. In more technical terms, a pointer is a variable that holds the address in memory of another variable.
 
 # Defining a pointer
@@ -80,7 +81,7 @@ int main()
 
 # Pointers have unique types
 
-There are types in C++ such as int, char, float, double, etc. Pointers have their own types as well. For example, if the "int" type was called, "I," the pointer to the int is a type called, "PI." 
+There are types in C++ such as int, char, float, double, etc. Pointers have their own types as well. For example, if the "int" type was called, "i," the pointer to the int is a type called, "Pi." 
 
 To see this in action, here's an example C++ program.
 
@@ -188,29 +189,54 @@ int main()
 
 Let's get into some real applications of pointers. One interesting thing about pointers is if you change the value of a pointer, you directly change the original variable's value.
 
+```cpp
+// Pointers changing a value
+#include <iostream>
+
+using namespace std;
+
+
+int main()
+{
+  int value = 1;
+  int* pvalue = &value;
+  
+  cout << "value before change: " << value << '\n';
+  *pvalue += 1;
+  cout << "value after change: " << value;
+  
+  /*
+  OUTPUT: 
+  value before change: 1
+  value after change: 2 
+  */
+
+}
+
+```
+
+This can be powerful. If we create a pointer to a variable, we can take it wherever we want and it will always be connected to the original variable. 
+
 ![Marionette doll being controlled by a hand](marionette.png)
 
 This kind of feels like our original value is a marionette doll, and our pointer is like the fingers that control it. We can bring our pointer wherever we want, and it's always attached to that original variable. If we change the pointers value, we change the original variables value. 
 
-Here's a simple example illustrating how changing a pointers value can change the value of a variable. In this example, we have two functions. `ChangeValue()` and `ReallyChangeValue()`. In `ChangeValue()`, we take in an integer, add one, and return the result. In the `ReallyChangeValue()` function, we do the exact same thing but with a pointer. Let's see what happens to the original variable's value when we run both functions.
+Here's a simple example illustrating how changing a pointers value can change the value of a variable. In this example, we have two functions. `ChangeValue()` and `ReallyChangeValue()`. In `ChangeValue()`, we take in an integer, and add one. In the `ReallyChangeValue()` function, we do the exact same thing but with a pointer. Let's see what happens to the original variable's value when we run both functions.
 
 ```cpp
 // Pointers changing a value
 #include <iostream>
-#include <string>
-#include <typeinfo>
+
 using namespace std;
 
-int ChangeValue(int value){
+void ChangeValue(int value){
   /*This function takes in an int and adds one to it. */
   value += 1;
-  return value;
 }
 
-int ReallyChangeValue(int* pvalue){
+void ReallyChangeValue(int* pvalue){
   /*This function takes in an int pointer and adds one to it. */
   *pvalue += 1;
-  return *pvalue;
 }
 
 void Display(string display, auto value){
@@ -225,38 +251,34 @@ int main()
   int value = 1;
   int* pvalue = &value;
   
-  // Let's mess around with functions. 
+  // Let's see what happens to the original value when we run 'ChangeValue'
   
   Display("value before", value);
-  Display("changed value", ChangeValue(value));
+  ChangeValue(value);
   Display("value after", value);
   
   // newline
   cout << '\n';
   
-  // really change value
+  // now if we run, 'ReallyChangeValue'
   
   Display("value before", value);
-  Display("really changed value", ReallyChangeValue(pvalue));
+  ReallyChangeValue(pvalue);
   Display("value after", value);
-  
-  // conclusion: 
-  // if you pass a variable to a function, it creates a copy of the variable.
-  // If you pass a pointer to a function, it modifies the original variable.
-  
   
   /*
   OUTPUT:
   
   value before: 1
-  changed value: 2
   value after: 1
   
   value before: 1
-  really changed value: 2
   value after: 2
   */
-  
+
+  // conclusion: 
+  // if you pass a variable to a function, it creates a copy of the variable.
+  // If you pass a pointer to a function, it modifies the original variable.
 }
 
 ```
@@ -267,13 +289,12 @@ Can you think of how this could be powerful and efficient? Let's look and see if
 
 # Are pointers faster?
 
-There are two ways of changing a value. One with pointers and one without pointers:
+There are two ways of changing a variable's value. One with pointers and one without pointers. In this example, notice that I am using the same functions as the last problem, but this time the `ChangeValue()` function returns the changed value. 
 ```cpp
 // Changing a value in two ways
 #include <iostream>
-#include <string>
-#include <typeinfo>
 #include <chrono>
+
 using namespace std;
 using namespace std::chrono;
 
@@ -331,21 +352,12 @@ In the first way, I use the function, "ChangeValue." This function takes the fir
 
 Making a copy of the variable can be computationally expensive. It's easier on the computer to just change the variable directly. 
 
-## Truck example
-
-![Pickup truck](truck.jpg)
-
-One way to think of these two functions is by imagining you have a friend with a truck. You need to use the truck for a day. Would you rather call and ask them if you can use their truck, or go out and buy your own truck? 
-
-The first way, making a copy of the variable, is like buying our own truck. We have to create a copy of the variable. The second way, using a pointer, is like borrowing the truck. We don't have to make a copy, we just use the value. 
-
 In this very simple example, it's hard to tell a difference in computational speed. Either method is so fast that the difference is negligable. Theoretically though, the pointer method is faster. Let's test that out by looping each method several times, and recording which one is faster.
 
 ```cpp
 // Testing pointer speed
 #include <iostream>
-#include <string>
-#include <typeinfo>
+
 #include <chrono>
 
 using namespace std;
@@ -431,3 +443,16 @@ int main() {
 ```
 
 After looping each method a large amount of times, we found that method 2 was consistenly faster. This speed difference could be very useful when working with very large C++ programs. Any extra efficiency is worth the trouble. 
+
+# Truck example
+
+![Pickup truck](truck.jpg)
+
+One way to think about pointers is by imagining you have a friend with a truck. You need to use the truck for a day. Would you rather call and ask them if you can use their truck, or go out and buy your own truck? 
+
+Copying the variable each time you need to modify it is like buying your own truck. It can be a lot more expensive on your performance. Using a pointer on the other hand is like calling and asking you friend to borrow their truck. This way, your program only has one truck that several functions can share. 
+
+Pointers aren't always the right choice though. Going back to the truck example, imagine you borrowed your friend's truck, and you get a big scratch in the paint, your friend would be really angry. Or say you borrowed your friends truck and then modified it to your own style by getting it lifted, getting some flame decals on the side, or getting the windows tinted. Your friend probably doesn't want his truck modified like that. Similarly with pointers, sometimes you shouldn't modify the original value. Depending on the circumstances, making a copy of the variable can be safer. So with pointers, it's important to understand what you're doing.
+
+# Conclusion
+With this brief introduction to pointers, we can already start to see how they can be beneficial. Pointers are variables that hold the address of another variable. By modifying a pointers value, we modify the original variable's value. Pointers are always connected to the original variable, so we can do things like modify the original variable inside of a different function or class. Pointers are powerful, but it's important to understand what you're doing so you don't accidentally modify a variable that you wanted to keep the way it was. 
