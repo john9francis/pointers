@@ -80,7 +80,7 @@ int main()
 
 # Pointers have unique types
 
-There are types in C++ such as int, char, float, double, etc. Pointers have their own types as well. For example, if the "int" type was called, "I," the pointer to the int is a type called, "PI." 
+There are types in C++ such as int, char, float, double, etc. Pointers have their own types as well. For example, if the "int" type was called, "i," the pointer to the int is a type called, "Pi." 
 
 To see this in action, here's an example C++ program.
 
