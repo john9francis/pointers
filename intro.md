@@ -197,8 +197,7 @@ Here's a simple example illustrating how changing a pointers value can change th
 ```cpp
 // Pointers changing a value
 #include <iostream>
-#include <string>
-#include <typeinfo>
+
 using namespace std;
 
 int ChangeValue(int value){
