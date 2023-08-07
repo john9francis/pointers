@@ -268,9 +268,8 @@ There are two ways of changing a value. One with pointers and one without pointe
 ```cpp
 // Changing a value in two ways
 #include <iostream>
-#include <string>
-#include <typeinfo>
 #include <chrono>
+
 using namespace std;
 using namespace std::chrono;
 
