@@ -216,3 +216,53 @@ int main()
 }
 
 ```
+
+You can make a reference to a reference
+```cpp
+// Reference to a reference?
+#include <iostream>
+
+using namespace std;
+
+void Display(string display, auto value){
+  /*This function displays the name of a variable and then it's value.*/
+  cout << display << ": " << value << '\n';
+}
+
+void DisplayType(string display, auto value){
+  auto valueType = typeid(value).name();
+  cout << display << ": " << valueType << '\n';
+}
+
+int main()
+{
+  // you can define a reference to a reference
+  int value = 1;
+  int& rvalue = value;
+  int& rrvalue = rvalue;
+  
+  Display("value", value);
+  Display("rvalue", rvalue);
+  Display("rrvalue", rrvalue);
+  
+  // they are all the exact same variable
+  Display("&value", &value);
+  Display("&rvalue", &rvalue);
+  Display("&rrvalue", &rrvalue);
+  
+  // changing one value changes them all
+  rrvalue = 2;
+  
+  Display("value", value);
+  Display("rvalue", rvalue);
+  Display("rrvalue", rrvalue);
+  
+  rvalue = 3;
+  
+  Display("value", value);
+  Display("rvalue", rvalue);
+  Display("rrvalue", rrvalue);
+  
+}
+
+```
