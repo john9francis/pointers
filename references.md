@@ -282,7 +282,7 @@ int main()
 
 ```
 references with functions
-```
+```cpp
 // references can modify a value even inside a function
 #include <iostream>
 
