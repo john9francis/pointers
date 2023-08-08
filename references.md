@@ -281,3 +281,55 @@ int main()
 }
 
 ```
+references with functions
+```
+// references can modify a value even inside a function
+#include <iostream>
+
+using namespace std;
+
+void Display(string display, auto value){
+  /*This function displays the name of a variable and then it's value.*/
+  cout << display << ": " << value << '\n';
+}
+
+void DisplayType(string display, auto value){
+  auto valueType = typeid(value).name();
+  cout << display << ": " << valueType << '\n';
+}
+
+void ChangeValue(int value){
+  value += 1;
+}
+
+void ReallyChangeValue(int& value){
+  value += 1;
+}
+
+int main()
+{
+  int value = 1;
+  
+  Display("value", value);
+  ChangeValue(value);
+  Display("value", value);
+  
+  cout << '\n';
+  
+  Display("value", value);
+  ReallyChangeValue(value);
+  Display("value", value);
+
+  /*
+  OUTPUT:
+  value: 1
+  value: 1
+
+  value: 1
+  value: 2
+  */
+
+}
+
+```
+^^ This way is actually easier than the similar thing with pointers
