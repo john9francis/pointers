@@ -20,6 +20,7 @@ In this tutorial, I go over some basic pointers, then explore how pointers are i
 # Useful websites
 - [C++ shell: Online C++ compiler](https://cpp.sh/)
 - [Defining functions in C++](https://www.tutorialspoint.com/cplusplus/cpp_functions.htm)
+- [Align your asterisks!](http://kera.name/articles/2010/05/tomalaks-monday-monstrous-rant-i-align-your-asterisks/)
 
 # Credit to Geant4
 - [Recent Developments in Geant4](https://www.sciencedirect.com/science/article/pii/S0168900216306957), J. Allison et al., Nucl. Instrum. Meth. A 835 (2016) 186-225
