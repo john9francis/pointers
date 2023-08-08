@@ -183,3 +183,36 @@ int main()
 }
 
 ```
+references don't have unique types:
+```cpp
+// References don't have unique types
+#include <iostream>
+
+using namespace std;
+
+void Display(string display, auto value){
+  /*This function displays the name of a variable and then it's value.*/
+  cout << display << ": " << value << '\n';
+}
+
+void DisplayType(string display, auto value){
+  auto valueType = typeid(value).name();
+  cout << display << ": " << valueType << '\n';
+}
+
+int main()
+{
+  int value = 1;
+  int& rvalue = value;
+  
+  DisplayType("value", value);
+  DisplayType("rvalue", rvalue);
+  
+  /*
+  OUTPUT:
+  value: i
+  rvalue: i
+  */
+}
+
+```
