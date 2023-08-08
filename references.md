@@ -1,5 +1,5 @@
 # References
-
+pointers vs references
 ```cpp
 // References
 #include <iostream>
@@ -54,6 +54,7 @@ int main()
 
 ```
 
+be careful with references...
 ```cpp
 // References
 #include <iostream>
@@ -139,3 +140,46 @@ int main()
 
 * I feel like i'm starting to see the possibilities of references... and the importance of the "const" keyword, lol. 
 * So what's the point of a reference? It's literally just another name for the exact same place in memory...
+
+```cpp
+// References are the exact same variable as the original
+#include <iostream>
+
+using namespace std;
+
+void Display(string display, auto value){
+  /*This function displays the name of a variable and then it's value.*/
+  cout << display << ": " << value << '\n';
+}
+
+void DisplayType(string display, auto value){
+  auto valueType = typeid(value).name();
+  cout << display << ": " << valueType << '\n';
+}
+
+int main()
+{
+  int value = 1;
+  int value2 = value;
+  int& rvalue = value;
+  
+  Display("value", value);
+  Display("value2", value2);
+  Display("rvalue", rvalue);
+  
+  Display("&value", &value);
+  Display("&value2", &value2);
+  Display("&rvalue", &rvalue);
+
+  /*
+  OUTPUT:
+  value: 1
+  value2: 1
+  rvalue: 1
+  &value: 0x50529c
+  &value2: 0x505298
+  &rvalue: 0x50529c
+  */
+}
+
+```
