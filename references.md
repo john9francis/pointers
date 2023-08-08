@@ -262,7 +262,22 @@ int main()
   Display("value", value);
   Display("rvalue", rvalue);
   Display("rrvalue", rrvalue);
-  
+
+  /*
+  OUTPUT:
+  value: 1
+  rvalue: 1
+  rrvalue: 1
+  &value: 0x50529c
+  &rvalue: 0x50529c
+  &rrvalue: 0x50529c
+  value: 2
+  rvalue: 2
+  rrvalue: 2
+  value: 3
+  rvalue: 3
+  rrvalue: 3
+  */
 }
 
 ```
