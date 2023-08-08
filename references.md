@@ -333,3 +333,131 @@ int main()
 
 ```
 ^^ This way is actually easier than the similar thing with pointers
+
+testing pointer speed vs reference speed with functions
+
+```cpp
+// Testing pointer vs. reference speed
+#include <iostream>
+
+#include <chrono>
+
+using namespace std;
+using namespace std::chrono;
+
+int ChangeValue(int value) {
+  value += 1;
+  return value;
+}
+
+void pReallyChangeValue(int* pvalue) {
+  *pvalue += 1;
+}
+
+void rReallyChangeValue(int& rvalue) {
+  rvalue += 1;
+}
+
+void Display(string display, auto value) {
+  cout << display << ": " << value << '\n';
+}
+
+int main() {
+  int changeMe;
+
+  // Let's loop each method a bunch of times
+  int times = 100000000;
+
+  // first method: =======================================================
+  changeMe = 1;
+
+  cout << "First method:";
+
+  // keep track of time:
+  auto start1 = high_resolution_clock::now();
+
+  // this should take a while
+  for (int i = 0; i < times; i++) {
+    changeMe = ChangeValue(changeMe);
+  }
+
+  // find the time it took to do loop 1
+  auto stop1 = high_resolution_clock::now();
+
+  auto duration1 = duration_cast<microseconds>(stop1 - start1).count();
+  Display("time spent", duration1);
+
+  // second method: ======================================================
+  changeMe = 1;
+
+  cout << "Second method:";
+
+  // keep track of time:
+  auto start2 = high_resolution_clock::now();
+
+  // get a pointer to use in the "ReallyChangeValue" function
+  int* pchangeMe = &changeMe;
+
+  // the loop
+  for (int i = 0; i < times; i++) {
+    pReallyChangeValue(pchangeMe);
+  }
+
+  // see how much time loop 2 took
+  auto stop2 = high_resolution_clock::now();
+
+  auto duration2 = duration_cast<microseconds>(stop2 - start2).count();
+  Display("time spent", duration2);
+
+  // display which method went faster
+  //if (duration1 < duration2) {
+  //    cout << "method 1 was faster.";
+  //}
+  //if (duration1 > duration2) {
+  //    cout << "method 2 was faster.";
+  //}
+  
+  // third method: references ===============================================
+   changeMe = 1;
+
+  cout << "Third method:";
+
+  // keep track of time:
+  auto start3 = high_resolution_clock::now();
+
+  // get a reference to use in the "ReallyChangeValue" function
+  int& rchangeMe = changeMe;
+
+  // the loop
+  for (int i = 0; i < times; i++) {
+    rReallyChangeValue(rchangeMe);
+  }
+
+  // see how much time loop 2 took
+  auto stop3 = high_resolution_clock::now();
+
+  auto duration3 = duration_cast<microseconds>(stop3 - start3).count();
+  Display("time spent", duration2);
+
+  // display which method went fastest
+  if (duration1 < duration2 && duration1 < duration3) {
+    cout << "method 1 was fastest.";
+  }
+  if (duration2 < duration1 && duration2 < duration3) {
+    cout << "method 2 was fastest.";
+  }
+  if (duration3 < duration1 && duration3 < duration2) {
+    cout << "method 3 was fastest.";
+  }
+  /*
+  OUTPUT:
+  First method:time spent: 1122560
+  Second method:time spent: 1018840
+  Third method:time spent: 1018840
+  method 3 was fastest. 
+  */
+  // second and third method were consistently tied for fastest
+}
+
+```
+conclusion: pointers and references are the same speed in this context, and references are easier.
