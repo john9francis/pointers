@@ -53,3 +53,89 @@ int main()
 }
 
 ```
+
+```cpp
+// References
+#include <iostream>
+
+using namespace std;
+
+void Display(string display, auto value){
+  /*This function displays the name of a variable and then it's value.*/
+  cout << display << ": " << value << '\n';
+}
+
+int main()
+{
+  int* ptr;
+  int var = 7;
+  int foo = 21;
+  
+  ptr = &var;
+  
+  Display("ptr", ptr);
+  Display("*ptr", *ptr);
+  
+  ptr = &foo;
+  
+  Display("ptr", ptr);
+  Display("*ptr", *ptr);
+  
+  ptr = &var;
+  
+  Display("ptr", ptr);
+  Display("*ptr", *ptr);
+  
+  // conclusion: you can point a pointer wherever
+  
+  // now references
+  // int& ref;
+  // ref = var;
+  //
+  // ERROR:
+  // main.cpp:35:8: error: declaration of reference variable 'ref' requires an initializer
+
+  // conclusion: you need to initialize a reference
+  Display("var", var);
+  Display("foo", foo);
+  
+  int& ref = var;
+  
+  Display("ref", ref);
+  Display("&ref", &ref);
+  
+  ref = foo;
+  
+  Display("ref", ref);
+  Display("&ref", &ref);
+  
+  Display("var", var);
+  Display("foo", foo);
+  
+  // conclusion: BE CAREFUL WITH REFERENCES...
+  // You can overwrite another variable with a reference if you try and reassign a reference
+  
+  /*
+  OUTPUT:
+  ptr: 0x505298
+  *ptr: 7
+  ptr: 0x505294
+  *ptr: 21
+  ptr: 0x505298
+  *ptr: 7
+  var: 7
+  foo: 21
+  ref: 7
+  &ref: 0x505298
+  ref: 21
+  &ref: 0x505298
+  var: 21
+  foo: 21
+ 
+  */
+
+}
+```
+
+* I feel like i'm starting to see the possibilities of references... and the importance of the "const" keyword, lol. 
+* So what's the point of a reference? It's literally just another name for the exact same place in memory...
