@@ -12,7 +12,21 @@
 - [Conclusion](#conclusion)
 
 # What is a pointer?
-A pointer is an address to another variable. Basically if you try to access a pointer it will "point" you to where the variable is located in memory. 
+A pointer is an address to another variable. Basically if you try to access a pointer it will "point" you to where the variable is located in memory.
+
+![Person pointing to a house saying, "your variable is right over there!"](pointer_graphic.png)
+
+In more technical terms, a pointer is a variable that's value is the address of another variable. 
+
+**Pseudo-code example:**:
+
+Variable 1:
+- value = 1
+- address = 0x123
+
+Pointer to variable 1:
+- value = 0x123
+- address = 0x456
 
 # Defining a pointer
 
