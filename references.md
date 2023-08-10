@@ -99,12 +99,6 @@ void Display(string display, auto value){
   cout << display << ": " << value << '\n';
 }
 
-void DisplayType(string display, auto value){
-  /*This function displays the name of the value and then it's type */
-  auto valueType = typeid(value).name();
-  cout << display << ": " << valueType << '\n';
-}
-
 int main() {
   int var = 1;
   int& rvar = var;
@@ -141,172 +135,78 @@ int main() {
 With pointers, you can change the value of a pointer at any time to another variable. With references however, you define it once and that's it. If you try to reassign a reference to another variable, you will end up redefining the variable that the reference points to. For example:
 
 ```cpp
-int var1 = 1;
-int var2 = 2;
+// Testing pointer vs. reference speed
+#include <iostream>
 
-int& ref1 = var1; // ref1 = 1.
+using namespace std;
 
-// attempting to redefine ref1 to be a reference to variable 2
-ref1 = var2; // ref1 = 2, and now var1 = 2! bad news!
+void Display(string display, auto value){
+  /*This function displays the name of a variable and then it's value.*/
+  cout << display << ": " << value << '\n';
+}
+
+
+int main() {
+
+  int var1 = 1;
+  int var2 = 2;
+  
+  int& ref1 = var1;
+  
+  // check the values of everything
+  Display("var1", var1);
+  Display("&var1", &var1);
+  Display("var2", var2);
+  Display("&var2", &var2);
+  Display("ref1", ref1);
+  Display("&ref1", &ref1);
+  
+  cout << '\n';
+  
+  // now we will attempt to redefine ref1 to point to var2.
+  // We might be expecting this to make ref1 a reference to var2...
+  // but this doesn't happen.
+  
+  ref1 = var2;
+  
+  Display("var1", var1);
+  Display("&var1", &var1);
+  Display("var2", var2);
+  Display("&var2", &var2);
+  Display("ref1", ref1);
+  Display("&ref1", &ref1);
+  
+  /*
+  OUTPUT:
+  var1: 1
+  &var1: 0x50529c
+  var2: 2
+  &var2: 0x505298
+  ref1: 1
+  &ref1: 0x50529c
+
+  var1: 2
+  &var1: 0x50529c
+  var2: 2
+  &var2: 0x505298
+  ref1: 2
+  &ref1: 0x50529c
+
+  */
+  
+  // conclusion: ref1 will ALWAYS point to var1, and what we did was just
+  // redefine var1 to the value of var2. 
+
+}
+
 ```
 
 Just remember, **Once you define a reference, you can't redefine it.**
 
-```cpp
-// References
-#include <iostream>
+# Reference to a reference
 
-using namespace std;
+You can make a reference to a reference, and a reference to a reference to a reference. When doing this, all the references are linked together, and when you change one, you change them all. 
 
-void Display(string display, auto value){
-  /*This function displays the name of a variable and then it's value.*/
-  cout << display << ": " << value << '\n';
-}
-
-int main()
-{
-  int* ptr;
-  int var = 7;
-  int foo = 21;
-  
-  ptr = &var;
-  
-  Display("ptr", ptr);
-  Display("*ptr", *ptr);
-  
-  ptr = &foo;
-  
-  Display("ptr", ptr);
-  Display("*ptr", *ptr);
-  
-  ptr = &var;
-  
-  Display("ptr", ptr);
-  Display("*ptr", *ptr);
-  
-  // conclusion: you can point a pointer wherever
-  
-  Display("var", var);
-  Display("foo", foo);
-  
-  int& ref = var;
-  
-  Display("ref", ref);
-  Display("&ref", &ref);
-  
-  ref = foo;
-  
-  Display("ref", ref);
-  Display("&ref", &ref);
-  
-  Display("var", var);
-  Display("foo", foo);
-  
-  // conclusion: BE CAREFUL WITH REFERENCES...
-  // You can overwrite another variable with a reference if you try and reassign a reference
-  
-  /*
-  OUTPUT:
-  ptr: 0x505298
-  *ptr: 7
-  ptr: 0x505294
-  *ptr: 21
-  ptr: 0x505298
-  *ptr: 7
-  var: 7
-  foo: 21
-  ref: 7
-  &ref: 0x505298
-  ref: 21
-  &ref: 0x505298
-  var: 21
-  foo: 21
- 
-  */
-
-}
-```
-
-* I feel like i'm starting to see the possibilities of references... and the importance of the "const" keyword, lol. 
-* So what's the point of a reference? It's literally just another name for the exact same place in memory...
-
-```cpp
-// References are the exact same variable as the original
-#include <iostream>
-
-using namespace std;
-
-void Display(string display, auto value){
-  /*This function displays the name of a variable and then it's value.*/
-  cout << display << ": " << value << '\n';
-}
-
-void DisplayType(string display, auto value){
-  auto valueType = typeid(value).name();
-  cout << display << ": " << valueType << '\n';
-}
-
-int main()
-{
-  int value = 1;
-  int value2 = value;
-  int& rvalue = value;
-  
-  Display("value", value);
-  Display("value2", value2);
-  Display("rvalue", rvalue);
-  
-  Display("&value", &value);
-  Display("&value2", &value2);
-  Display("&rvalue", &rvalue);
-
-  /*
-  OUTPUT:
-  value: 1
-  value2: 1
-  rvalue: 1
-  &value: 0x50529c
-  &value2: 0x505298
-  &rvalue: 0x50529c
-  */
-}
-
-```
-references don't have unique types:
-```cpp
-// References don't have unique types
-#include <iostream>
-
-using namespace std;
-
-void Display(string display, auto value){
-  /*This function displays the name of a variable and then it's value.*/
-  cout << display << ": " << value << '\n';
-}
-
-void DisplayType(string display, auto value){
-  auto valueType = typeid(value).name();
-  cout << display << ": " << valueType << '\n';
-}
-
-int main()
-{
-  int value = 1;
-  int& rvalue = value;
-  
-  DisplayType("value", value);
-  DisplayType("rvalue", rvalue);
-  
-  /*
-  OUTPUT:
-  value: i
-  rvalue: i
-  */
-}
-
-```
-
-You can make a reference to a reference
 ```cpp
 // Reference to a reference?
 #include <iostream>
