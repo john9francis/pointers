@@ -84,9 +84,12 @@ int main() {
 
 ```
 
-pointers vs references
+# Modifying Values
+
+If you modify a value, you also modify any references to that value. If you modify a reference, you also modify the original value.
+
 ```cpp
-// References
+// Testing pointer vs. reference speed
 #include <iostream>
 
 using namespace std;
@@ -96,50 +99,59 @@ void Display(string display, auto value){
   cout << display << ": " << value << '\n';
 }
 
-int main()
-{
-  int value = 1;
-  int& rvalue = value;
+void DisplayType(string display, auto value){
+  /*This function displays the name of the value and then it's type */
+  auto valueType = typeid(value).name();
+  cout << display << ": " << valueType << '\n';
+}
+
+int main() {
+  int var = 1;
+  int& rvar = var;
   
-  Display("value", value);
-  Display("rvalue", rvalue);
+  Display("var", var);
+  Display("rvar", rvar);
   
-  // you can change the value by changing the reference
-  rvalue = 2;
+  var = 2;
   
-  Display("value", value);
-  Display("rvalue", rvalue);
+  Display("var", var);
+  Display("rvar", rvar);
   
-  // Where are they in memory?
-  Display("&value", &value);
-  Display("&rvalue", &rvalue);
-  // in the exact same spot...
-  // a reference is just another name for the same variable???
+  rvar = 3;
   
-  // pointers on the other hand are not in the same spot in memory...
-  int value2 = 2;
-  int* pvalue2 = &value2;
-  
-  Display("&value2", &value2);
-  Display("&pvalue2", &pvalue2);
+  Display("var", var);
+  Display("rvar", rvar);
   
   /*
-  OUTPUT: 
-  value: 1
-  rvalue: 1
-  value: 2
-  rvalue: 2
-  &value: 0x5052ac
-  &rvalue: 0x5052ac
-  &value2: 0x505244
-  &pvalue2: 0x505240
+  OUTPUT:
+  var: 1
+  rvar: 1
+  var: 2
+  rvar: 2
+  var: 3
+  rvar: 3
+ 
   */
-
 }
 
 ```
 
-be careful with references...
+# Be careful with references
+
+With pointers, you can change the value of a pointer at any time to another variable. With references however, you define it once and that's it. If you try to reassign a reference to another variable, you will end up redefining the variable that the reference points to. For example:
+
+```cpp
+int var1 = 1;
+int var2 = 2;
+
+int& ref1 = var1; // ref1 = 1.
+
+// attempting to redefine ref1 to be a reference to variable 2
+ref1 = var2; // ref1 = 2, and now var1 = 2! bad news!
+```
+
+Just remember, **Once you define a reference, you can't redefine it.**
+
 ```cpp
 // References
 #include <iostream>
@@ -174,14 +186,6 @@ int main()
   
   // conclusion: you can point a pointer wherever
   
-  // now references
-  // int& ref;
-  // ref = var;
-  //
-  // ERROR:
-  // main.cpp:35:8: error: declaration of reference variable 'ref' requires an initializer
-
-  // conclusion: you need to initialize a reference
   Display("var", var);
   Display("foo", foo);
   
