@@ -8,7 +8,7 @@ Author: [John Francis](https://github.com/john9francis)
 
 When programming in C++, it's inevitable that you're going to run into pointers at some point. Pointers are all over C++. Especially if you are using a library or toolkit developed by professional developers, it's nice to understand what pointers are and what they do.
 
-[ \\ ] ( In this tutorial, I go over some basic pointers, then explore how pointers are implimented in a more complicated, industry standard program. This tutorial features [Geant4](https://geant4.web.cern.ch/), a physics simulation toolkit written entirely in C++. This provides some real-world applications of pointers and shows off just how powerful they can be. )
+[\\] ( In this tutorial, I go over some basic pointers, then explore how pointers are implimented in a more complicated, industry standard program. This tutorial features [Geant4](https://geant4.web.cern.ch/), a physics simulation toolkit written entirely in C++. This provides some real-world applications of pointers and shows off just how powerful they can be. )
 
 # Contents
 - [1. Intro to pointers](intro.md)
