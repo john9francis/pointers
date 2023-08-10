@@ -1,4 +1,13 @@
 # References
+
+[home](README.md)
+
+Contents:
+[What is a reference?](#what-is-a-reference)
+
+# What is a reference?
+A reference is similar to a pointer, but a little bit different. Where a pointer is the address to a variable, a reference IS the variable. It's not a copy of the variable, it actually is the variable. In more technical terms, a reference is a variable that is located in the same exact memory address as the original variable. 
+
 pointers vs references
 ```cpp
 // References
