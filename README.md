@@ -19,6 +19,7 @@ In this tutorial, I go over some basic pointers, then explore how pointers are i
 
 # Useful websites
 - [C++ shell: Online C++ compiler](https://cpp.sh/)
+- [Cplusplus.com/pointers](https://cplusplus.com/doc/tutorial/pointers/)
 - [Defining functions in C++](https://www.tutorialspoint.com/cplusplus/cpp_functions.htm)
 - [Align your asterisks!](http://kera.name/articles/2010/05/tomalaks-monday-monstrous-rant-i-align-your-asterisks/)
 - [Stackoverflow pointer help](https://stackoverflow.com/questions/20864574/ampersand-at-the-end-of-variable-etc)
