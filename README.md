@@ -11,15 +11,17 @@ When programming in C++, it's inevitable that you're going to run into pointers 
 In this tutorial, I go over some basic pointers, then explore how pointers are implimented in a more complicated, industry standard program. This tutorial features [Geant4](https://geant4.web.cern.ch/), a physics simulation toolkit written entirely in C++. This provides some real-world applications of pointers and shows off just how powerful they can be. 
 
 # Contents
-- [1. Introduction to pointers](intro.md)
-- [2. simple pointers in Geant4](geant4_pointers.md)
-- [3. New, Delete, Constructors, and Destructors](new_delete.md)
-- [4. New, Delete, Const., Dest., in Geant4](geant4_new_delete.md)
+- [1. Intro to pointers](intro.md)
+- [2. Intro to references](references.md)
 
 
 # Useful websites
 - [C++ shell: Online C++ compiler](https://cpp.sh/)
+- [Cplusplus.com/pointers](https://cplusplus.com/doc/tutorial/pointers/)
 - [Defining functions in C++](https://www.tutorialspoint.com/cplusplus/cpp_functions.htm)
+- [Align your asterisks!](http://kera.name/articles/2010/05/tomalaks-monday-monstrous-rant-i-align-your-asterisks/)
+- [Stackoverflow pointer help](https://stackoverflow.com/questions/20864574/ampersand-at-the-end-of-variable-etc)
+- [Really good pointer video](https://www.youtube.com/watch?v=sxHng1iufQE)
 
 # Credit to Geant4
 - [Recent Developments in Geant4](https://www.sciencedirect.com/science/article/pii/S0168900216306957), J. Allison et al., Nucl. Instrum. Meth. A 835 (2016) 186-225
