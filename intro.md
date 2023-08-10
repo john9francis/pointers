@@ -3,6 +3,7 @@
 [home](README.md)
 
 ## Contents:
+- [What is a pointer?](#what-is-a-pointer)
 - [Defining a pointer](#defining-a-pointer)
 - [Pointers have unique types](#pointers-have-unique-types)
 - [Pointer-ception](#pointer-ception)
