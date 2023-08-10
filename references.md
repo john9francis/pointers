@@ -2,6 +2,19 @@
 
 [home](README.md)
 
+Contents:
+[What is a reference?](#what-is-a-reference)
+
+# What is a reference?
+The Asterisk `*` in C++ has two uses, defining a pointer...
+```cpp
+int* ptr;
+```
+Or getting the value of said pointer.
+```cpp
+*ptr
+```
+
 pointers vs references
 ```cpp
 // References
