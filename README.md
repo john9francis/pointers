@@ -11,8 +11,8 @@ When programming in C++, it's inevitable that you're going to run into pointers 
 In this tutorial, I go over some basic pointers, then explore how pointers are implimented in a more complicated, industry standard program. This tutorial features [Geant4](https://geant4.web.cern.ch/), a physics simulation toolkit written entirely in C++. This provides some real-world applications of pointers and shows off just how powerful they can be. 
 
 # Contents
-- [1. Introduction to pointers](intro.md)
-- [2. Intro. to references](references.md)
+- [1. Intro to pointers](intro.md)
+- [2. Intro to references](references.md)
 
 
 # Useful websites
