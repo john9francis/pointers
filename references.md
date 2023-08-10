@@ -270,7 +270,12 @@ int main()
 }
 
 ```
-references with functions
+# References with functions
+
+One unique quality of references is that they always point to the original variable, even in functions.
+
+When you pass a type into a C++ function, it will by default make a copy of that type. If you pass in a reference though, it won't make a copy, it will actually modify the original variable. 
+
 ```cpp
 // references can modify a value even inside a function
 #include <iostream>
@@ -282,10 +287,6 @@ void Display(string display, auto value){
   cout << display << ": " << value << '\n';
 }
 
-void DisplayType(string display, auto value){
-  auto valueType = typeid(value).name();
-  cout << display << ": " << valueType << '\n';
-}
 
 void ChangeValue(int value){
   value += 1;
@@ -322,6 +323,8 @@ int main()
 
 ```
 ^^ This way is actually easier than the similar thing with pointers
+
+We did a similar experiment with pointer in the last tutorial. In my opinion, the references function was easier to code, so let's see if one of them is faster than the other. 
 
 testing pointer speed vs reference speed with functions
 
