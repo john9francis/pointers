@@ -1,6 +1,6 @@
 # References
 
-[home](#README.md)
+[home](README.md)
 
 pointers vs references
 ```cpp
