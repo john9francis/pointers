@@ -12,9 +12,7 @@ In this tutorial, I go over some basic pointers, then explore how pointers are i
 
 # Contents
 - [1. Introduction to pointers](intro.md)
-- [2. simple pointers in Geant4](geant4_pointers.md)
-- [3. New, Delete, Constructors, and Destructors](new_delete.md)
-- [4. New, Delete, Const., Dest., in Geant4](geant4_new_delete.md)
+- [2. Intro. to references](references.md)
 
 
 # Useful websites
