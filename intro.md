@@ -149,9 +149,7 @@ int main()
 
 It is possible to have a pointer to a pointer. You can also have a pointer to a pointer to a pointer. This is generally not reccomended, as it makes code very confusing, but it is possible. 
 
-The interesting thing to me, is the types that are generated. For example, a pointer to a pointer to an int is called a "PPI." A pointer to that would be called a "PPPI." 
-
-As far as I can tell, there is no limit to the depth of "pointer-ception."
+There is no limit to the depth of "pointer-ception." You could have a pppppppppppi if you wanted. 
 
 ```cpp
 // Pointer-ception
