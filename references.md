@@ -26,7 +26,7 @@ rvar = var; // NOPE, you gotta do it in the same line
 # References are literally the original variable
 To prove that a reference is in fact the original variable and not a copy, consider this code:
 ```cpp
-// Testing pointer vs. reference speed
+// References
 #include <iostream>
 
 using namespace std;
