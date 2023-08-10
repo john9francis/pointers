@@ -3,10 +3,86 @@
 [home](README.md)
 
 Contents:
-[What is a reference?](#what-is-a-reference)
+- [What is a reference?](#what-is-a-reference)
 
 # What is a reference?
 A reference is similar to a pointer, but a little bit different. Where a pointer is the address to a variable, a reference IS the variable. It's not a copy of the variable, it actually is the variable. In more technical terms, a reference is a variable that is located in the same exact memory address as the original variable. 
+
+![Man looking in the mirror](mirror.jpg)
+
+# How to define a reference
+
+To define a reference, we use the ampersand, "`&`". Here's an example of creating a reference to a variable.
+```cpp
+int var = 1;
+int& rvar = var;
+``` 
+Note: You can't initialize a reference and then assign it later... You have to assign a reference to a variable on the same line you create it. So the following code will produce an ERROR:
+```cpp
+int& rvar;
+rvar = var; // NOPE, you gotta do it in the same line
+```
+
+# References are literally the original variable
+To prove that a reference is in fact the original variable and not a copy, consider this code:
+```cpp
+// Testing pointer vs. reference speed
+#include <iostream>
+
+using namespace std;
+
+void Display(string display, auto value){
+  /*This function displays the name of a variable and then it's value.*/
+  cout << display << ": " << value << '\n';
+}
+
+void DisplayType(string display, auto value){
+  /*This function displays the name of the value and then it's type */
+  auto valueType = typeid(value).name();
+  cout << display << ": " << valueType << '\n';
+}
+
+int main() {
+  
+  int var = 1;
+  int& rvar = var;
+  
+  // display the value of both variables
+  Display("var", var);
+  Display("rvar", rvar);
+  
+  // display the location in memory of both variables
+  Display("&var", &var);
+  Display("&rvar", &rvar);
+  
+  // display the types of both var and rvar
+  DisplayType("var", var);
+  DisplayType("rvar", rvar);
+  
+  // display if var == rvar
+  if (var == rvar){
+    cout << "True";
+  }
+  else{
+    cout << "False";
+  }
+  
+  /*
+  OUTPUT:
+  var: 1
+  rvar: 1
+  &var: 0x5052f8
+  &rvar: 0x5052f8
+  var: i
+  rvar: i
+  True 
+  */
+  
+  // conclusion: var and rvar are the exact same variable with different names. 
+  
+}
+
+```
 
 pointers vs references
 ```cpp
