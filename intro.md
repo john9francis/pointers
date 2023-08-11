@@ -10,6 +10,7 @@ To watch the video version of this tutorial, click [here.](https://youtu.be/w69W
 - [Pointers have unique types](#pointers-have-unique-types)
 - [Pointer-ception](#pointer-ception)
 - [Pointers in functions can change the original variable](#pointers-in-functions-can-change-the-original-variable)
+- [Const with pointers](#const-with-pointers)
 - [Are pointers faster?](#are-pointers-faster)
 - [Truck example](#truck-example)
 - [Conclusion](#conclusion)
