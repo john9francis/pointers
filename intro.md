@@ -298,7 +298,21 @@ int main()
 
 As you can see by the output, the first function, `ChangeValue()`, creates a copy of the variable, and changes that copy's value, without touching the original variable. The `ReallyChangeValue()` function on the other hand, modifies the original variable.
 
-Can you think of how this could be powerful and efficient? Let's look and see if it's more efficient to use pointers than to not.
+# Const with pointers
+There may be times when you want to either protect a variable to make sure a pointer can't change it, or create a pointer that can't change it's variable. Such "read-only" variables can be created by using the `const` keyword. To create a variable that can't ever be redefined or changed, you define it like so:
+```cpp
+const int var = 1;
+```
+This variable "var" can't be changed no matter what. But let's say we want to be able to change the variable, just not with a pointer, we can define a read-only pointer like so:
+
+```cpp
+int var = 1;
+const int* readOnlyPtr = &var;
+
+readOnlyPtr = 2; // ERROR: Can't redefine a read-only variable
+```
+
+This way, we can protect the things that we don't want to accidentally change. But sometimes we want the pointer to change the original value.
 
 # Are pointers faster?
 
