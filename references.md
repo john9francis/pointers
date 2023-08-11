@@ -203,6 +203,14 @@ int main() {
 
 Just remember, **Once you define a reference, you can't redefine it.**
 
+# Const with references
+If we want, we can make read-only references using the `const` keyword:
+```cpp
+int var = 1;
+int& rvar = var; // this is a normal reference
+const int& rvar = var; // this is a read-only reference.
+```
+
 # Reference to a reference
 
 You can make a reference to a reference, and a reference to a reference to a reference. When doing this, all the references are linked together, and when you change one, you change them all. 
