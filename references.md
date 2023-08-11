@@ -5,14 +5,14 @@
 Contents:
 - [What is a reference?](#what-is-a-reference)
 - [How to define a reference](#how-to-define-a-reference)
-- # References are literally the original variable# References are literally the original variable
-- # Modifying Values# Modifying Values
-- # Be careful with references# Be careful with references
-- # Const with references# Const with references
-- # Reference to a reference# Reference to a reference
-- # References with functions# References with functions
-- # Pointer speed vs Reference speed# Pointer speed vs Reference speed
-- # Conclusion# Conclusion
+- [References are literally the original variable](#references-are-literally-the-original-variable)
+- [Modifying Values](#modifying-values)
+- [Be careful with references](#be-careful-with-references)
+- [Const with references](#const-with-references)
+- [Reference to a reference](#reference-to-a-reference)
+- [References with functions](#references-with-functions)
+- [Pointer speed vs Reference speed](#pointer-speed-vs-reference-speed)
+- [Conclusion](#conclusion)
 
 # What is a reference?
 A reference is similar to a pointer, but a little bit different. Where a pointer is the address to a variable, a reference IS the variable. It's not a copy of the variable, it actually is the variable. In more technical terms, a reference is a variable that is located in the same exact memory address as the original variable. 
