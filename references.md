@@ -322,11 +322,10 @@ int main()
 }
 
 ```
-^^ This way is actually easier than the similar thing with pointers
 
 We did a similar experiment with pointer in the last tutorial. In my opinion, the references function was easier to code, so let's see if one of them is faster than the other. 
 
-testing pointer speed vs reference speed with functions
+# Testing pointer speed vs reference speed with functions
 
 ```cpp
 // Testing pointer vs. reference speed
@@ -452,4 +451,7 @@ int main() {
 }
 
 ```
-conclusion: pointers and references are the same speed in this context, and references are easier.
+From this code we see that pointers and references are the same speed in this context, and references are easier to code.
+
+# Conclusion:
+References are similar to pointers, but slightly different. In our example, references were actually a bit easier to code. But we can't redefine a reference after we have defined it. References can find the original variable even when passed into a function. In conclusion, references can speed up code and save memory, but we should be careful when using them. 
