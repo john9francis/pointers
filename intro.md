@@ -2,6 +2,8 @@
 
 [home](README.md)
 
+To watch the video version of this tutorial, click [here.](https://youtu.be/w69WvQojyVA)
+
 ## Contents:
 - [What is a pointer?](#what-is-a-pointer)
 - [Defining a pointer](#defining-a-pointer)
