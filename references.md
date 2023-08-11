@@ -4,6 +4,15 @@
 
 Contents:
 - [What is a reference?](#what-is-a-reference)
+- # How to define a reference# How to define a reference
+- # References are literally the original variable# References are literally the original variable
+- # Modifying Values# Modifying Values
+- # Be careful with references# Be careful with references
+- # Const with references# Const with references
+- # Reference to a reference# Reference to a reference
+- # References with functions# References with functions
+- # Pointer speed vs Reference speed# Pointer speed vs Reference speed
+- # Conclusion# Conclusion
 
 # What is a reference?
 A reference is similar to a pointer, but a little bit different. Where a pointer is the address to a variable, a reference IS the variable. It's not a copy of the variable, it actually is the variable. In more technical terms, a reference is a variable that is located in the same exact memory address as the original variable. 
@@ -333,7 +342,7 @@ int main()
 
 We did a similar experiment with pointer in the last tutorial. In my opinion, the references function was easier to code, so let's see if one of them is faster than the other. 
 
-# Testing pointer speed vs reference speed with functions
+# Pointer speed vs Reference speed
 
 ```cpp
 // Testing pointer vs. reference speed
@@ -461,5 +470,6 @@ int main() {
 ```
 From this code we see that pointers and references are the same speed in this context, and references are easier to code.
 
-# Conclusion:
+# Conclusion
+
 References are similar to pointers, but slightly different. In our example, references were actually a bit easier to code. But we can't redefine a reference after we have defined it. References can find the original variable even when passed into a function. In conclusion, references can speed up code and save memory, but we should be careful when using them. 
