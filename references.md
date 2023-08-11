@@ -4,7 +4,7 @@
 
 Contents:
 - [What is a reference?](#what-is-a-reference)
-- # How to define a reference# How to define a reference
+- [# How to define a reference](#how-to-define-a-reference)
 - # References are literally the original variable# References are literally the original variable
 - # Modifying Values# Modifying Values
 - # Be careful with references# Be careful with references
