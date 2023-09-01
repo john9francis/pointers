@@ -22,4 +22,5 @@ When programming in C++, it's inevitable that you're going to run into pointers 
 - [Align your asterisks!](http://kera.name/articles/2010/05/tomalaks-monday-monstrous-rant-i-align-your-asterisks/)
 - [Stackoverflow pointer help](https://stackoverflow.com/questions/20864574/ampersand-at-the-end-of-variable-etc)
 - [Really good pointer video](https://www.youtube.com/watch?v=sxHng1iufQE)
+- [Stack vs. Heap](https://www.geeksforgeeks.org/stack-vs-heap-memory-allocation/)
 
