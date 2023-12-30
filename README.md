@@ -11,8 +11,9 @@ When programming in C++, it's inevitable that you're going to run into pointers 
 # Contents
 1. [Intro to pointers](intro.md)
 2. [Intro to references](references.md)
-3. New and Delete
-4. Constructors and Destructors
+3. Different types of memory allocation
+4. New and Delete
+5. Constructors and Destructors
 
 
 # Useful websites
