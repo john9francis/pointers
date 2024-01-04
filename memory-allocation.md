@@ -19,3 +19,5 @@ the stack, and getting a variable just returns whatever's at the top of the stac
 
 # sources
 1. [Different datastructures in programming](https://john9francis.github.io/datastructures/)
+2. [Static vs. dynamic memory allocation](https://www.geeksforgeeks.org/difference-between-static-and-dynamic-memory-allocation-in-c/)
+3. 
