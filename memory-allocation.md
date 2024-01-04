@@ -25,4 +25,5 @@ The heap is space available for the program to use during runtime. The pros and 
 
 # other useful websites
 - [Static vs. dynamic memory allocation](https://www.geeksforgeeks.org/difference-between-static-and-dynamic-memory-allocation-in-c/)
-- [Dynamic memory alloc in python](https://www.javatpoint.com/python-memory-management) 
+- [Dynamic memory alloc in python](https://www.javatpoint.com/python-memory-management)
+- [C++ documentation for dynamic memory allocation](https://cplusplus.com/doc/tutorial/dynamic/)
