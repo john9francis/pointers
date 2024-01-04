@@ -2,7 +2,7 @@
 
 In C++, we use pointers to control where our variables are stored in memory. This is different from a language like python where all that work is done behind the scenes. 
 
-# Stack vs. Heap
+# Stack vs. Heap Memory
 
 When we run a C++ program, we will need to store information in the computer's RAM. In the RAM, there are two types of memory available to us. There are the stack and the heap.
 
