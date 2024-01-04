@@ -1,6 +1,6 @@
 # Dynamic memory allocation
 
-In C++, we use pointers to control where our variables are stored in memory. This is different from a language like python where all that work is done behind the scenes. 
+In C++, we use pointers to control where our variables are stored in memory.
 
 # Stack vs. Heap Memory
 
@@ -13,11 +13,16 @@ the stack, and getting a variable just returns whatever's at the top of the stac
 2. Variables must have a known size at compile time
 
 ## Heap
+The heap is space available for the program to use during runtime. The pros and cons of heap memory are as follows:
+1. Slower
+2. Variables can be created and deleted during runtime
 
-
+- [Bard help on understanding dynamic memory alloc](https://bard.google.com/chat/1d3140fb5ca0d873)
 
 
 # sources
 1. [Different datastructures in programming](https://john9francis.github.io/datastructures/)
-2. [Static vs. dynamic memory allocation](https://www.geeksforgeeks.org/difference-between-static-and-dynamic-memory-allocation-in-c/)
-3. 
+
+# other useful websites
+- [Static vs. dynamic memory allocation](https://www.geeksforgeeks.org/difference-between-static-and-dynamic-memory-allocation-in-c/)
+- [Dynamic memory alloc in python](https://www.javatpoint.com/python-memory-management) 
