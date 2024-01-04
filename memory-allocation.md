@@ -20,6 +20,17 @@ The heap is space available for the program to use during runtime. The pros and 
 - [Bard help on understanding dynamic memory alloc](https://bard.google.com/chat/1d3140fb5ca0d873)
 
 
+## Nice thing about using dynamic memory
+One nice thing about using dynamic memory is we have a pointer that points to that variable. This pointer is really lightweight; just an address to a variable. We can more that pointer around
+our program and we don't have to worry about speed as much. For example:
+
+```cpp
+MyClass* mc = new MyClass();
+myFunction(mc);
+```
+
+This function, `myFunction` takes in the pointer to the `MyClass` class. The class might be really big, but it is stored in dynamic memory. We just use the pointer to the class to modify the data. This way, we don't have to make big copies of the data when we move it around, we only need to move around the address. 
+
 # sources
 1. [Different datastructures in programming](https://john9francis.github.io/datastructures/)
 
