@@ -13,10 +13,9 @@ the stack, and getting a variable just returns whatever's at the top of the stac
 2. Variables must have a known size at compile time
 
 ## Heap
-The heap is a tree data structure, [(1.)](#sources), [(2.)](#sources)
+
 
 
 
 # sources
 1. [Different datastructures in programming](https://john9francis.github.io/datastructures/)
-2. [Heap is a tree](https://en.wikipedia.org/wiki/Heap_(data_structure))
